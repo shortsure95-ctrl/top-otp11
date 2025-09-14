@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Paid Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  body{font-family:'Poppins',sans-serif;margin:0;background:linear-gradient(135deg,#4e4376,#2b5876);
+    min-height:100vh;display:flex;align-items:center;justify-content:center;color:#fff;padding:20px}
+  .card{width:420px;max-width:100%;background:rgba(255,255,255,0.08);padding:22px;border-radius:12px;text-align:center}
+  h2{margin-top:0}
+  .btn{padding:10px 14px;border-radius:8px;border:none;cursor:pointer;
+    background:linear-gradient(135deg,#43e97b,#38f9d7);color:#012;font-weight:600;
+    text-decoration:none;text-align:center;display:block;margin:8px 0}
+  .small{font-size:13px;color:#cbd5e1}
+  .danger{background:transparent;border:1px solid rgba(255,255,255,0.2);color:#fff}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h2>Paid Dashboard</h2>
+    <p class="small">📞 Telegram Number: <strong>@yourtelegramnumber</strong></p>
+
+    <a href="https://t.me/FAST_OTP_GROUP" target="_blank" class="btn">🔢Telegram number Group,free.</a>
+    <a href="https://t.me/FAST_OTP_GROUP" target="_blank" class="btn">🔑 OTP Telegram Group,free.</a>
+    <a href="https://www.ivasms.com/login" target="_blank" class="btn">🌐 OTP Website,paid.</a>
+
+    <button id="logout" class="btn danger">Logout</button>
+  </div>
+
+<script>
+  const getSession = () => {
+    try { return JSON.parse(sessionStorage.getItem('ms_session')); }
+    catch(e){ return null; }
+  };
+  const clearSession = () => sessionStorage.removeItem('ms_session');
+
+  const sess = getSession();
+  if(!sess || !sess.phone){
+    alert('Login required. Redirecting to login page.');
+    window.location.href = 'paid.html';
+  }
+
+  document.getElementById('logout').addEventListener('click', () => {
+    clearSession();
+    window.location.href = 'paid.html';
+  });
+</script>
+</body>
+</html>
